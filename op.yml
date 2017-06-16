@@ -1,0 +1,126 @@
+name: github.com/opspec-pkgs/azure.webapp.config.set
+description: sets azure webapp configuration
+inputs:
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  loginId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
+      isSecret: true
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name for webapp
+  resourceGroup:
+    string:
+      constraints: { minLength: 1 }
+      description: resource group for webapp
+  alwaysOn:
+    string:
+      constraints: { enum: ['true', 'false'] }
+      description: if 'always on' is enabled for the webapp
+      default: 'true'
+  autoHealEnabled:
+    string:
+      constraints: { enum: ['true', 'false'] }
+      description: if 'auto heal' is enabled for the webapp
+      default: 'true'
+  javaContainer:
+    string:
+      constraints: { minLength: 1 }
+      description: java container for the webapp, e.g. Tomcat, Jetty
+      default: ' '
+  javaContainerVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: java container version for the webapp, e.g. 8.0.23 for Tomcat
+      default: ' '
+  javaVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: java version for the webapp, e.g. 1.7, 1.8
+      default: ' '
+  linuxFxVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: linux runtime stack for the webapp, e.g. RUBY|2.3, NODE|6.6, PHP|5.6, DOTNETCORE|1.1.0
+      default: ' '
+  netFrameworkVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: .net framework version for the webapp, e.g. v4.0 for .net4.6, v3.0 for .net3.6
+      default: ' '
+  phpVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: php version for the webapp, e.g. 5.5, 5.6, 7.0
+      default: ' '
+  pythonVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: php version for the webapp, e.g. 2.7, 3.4
+      default: ' '
+  remoteDebuggingEnabled:
+    string:
+      constraints: { enum: ['true', 'false'] }
+      description: if remote debugging is enabled for the webapp
+      default: 'false'
+  slot:
+    string:
+      constraints: { minLength: 1 }
+      description: active slot for the webapp
+      default: ' '
+  use32BitWorkerProcess:
+    string:
+      constraints: { enum: ['true', 'false'] }
+      description: if 32 bit worker process is enabled for the webapp
+      default: 'false'
+  webSocketsEnabled:
+    string:
+      constraints: { enum: ['true', 'false'] }
+      description: if websockets are enabled used for the webapp
+      default: 'false'
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: ' '
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
+version: 1.0.0
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
+    cmd: [ /cmd.sh ]
+    files: { /cmd.sh, /sshKeyValue: sshKeyValue }
+    envVars:
+      subscriptionId:
+      loginId:
+      loginSecret:
+      name:
+      resourceGroup:
+      alwaysOn:
+      autoHealEnabled:
+      javaContainer:
+      javaContainerVersion:
+      javaVersion:
+      linuxFxVersion:
+      netFrameworkVersion:
+      phpVersion:
+      pythonVersion:
+      remoteDebuggingEnabled:
+      slot:
+      use32BitWorkerProcess:
+      webSocketsEnabled:
+      loginTenantId:
+      loginType:
