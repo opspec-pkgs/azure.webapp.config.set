@@ -1,7 +1,7 @@
-# problem statement
+# Problem statement
 sets azure webapp configuration
 
-# example usage
+# Example usage
 
 > note: in examples, VERSION represents a version of the azure.webapp.config.set pkg
 
@@ -48,3 +48,7 @@ run:
       # end optional args
 ```
 
+# Support
+
+join us on [![Slack](https://opspec-slackin.herokuapp.com/badge.svg)](https://opspec-slackin.herokuapp.com/)
+or [open an issue](https://github.com/opspec-pkgs/azure.webapp.config.set/issues)
