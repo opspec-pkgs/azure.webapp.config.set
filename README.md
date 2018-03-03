@@ -1,38 +1,41 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/azure.webapp.config.set.svg?branch=master)](https://travis-ci.org/opspec-pkgs/azure.webapp.config.set)
 
+<img src="icon.svg" alt="icon" height="100px">
+
 # Problem statement
 
 sets azure webapp configuration
 
+# Format
+
+this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5/packages.html) format
+
 # Example usage
 
-> note: in examples, VERSION represents a version of the
-> azure.webapp.config.set pkg
-
-## install
+## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/azure.webapp.config.set#VERSION
+opctl pkg install github.com/opspec-pkgs/azure.webapp.config.set#1.0.0
 ```
 
-## run
+## Run
 
 ```
-opctl run github.com/opspec-pkgs/azure.webapp.config.set#VERSION
+opctl run github.com/opspec-pkgs/azure.webapp.config.set#1.0.0
 ```
 
-## compose
+## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/azure.webapp.config.set#VERSION }
-  inputs: 
+  pkg: { ref: github.com/opspec-pkgs/azure.webapp.config.set#1.0.0 }
+  inputs:
     subscriptionId:
     loginId:
     loginSecret:
     name:
     resourceGroup:
-    # begin optional args
+    # params w/ default
     alwaysOn:
     autoHealEnabled:
     javaContainer:
@@ -48,7 +51,6 @@ op:
     webSocketsEnabled:
     loginTenantId:
     loginType:
-    # end optional args
 ```
 
 # Support
